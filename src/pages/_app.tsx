@@ -9,12 +9,13 @@ import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { arbitrum, mainnet, optimism, polygon, zora } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import { env } from '~/env.mjs';
 
 const { chains, publicClient } = configureChains([mainnet, polygon, optimism, arbitrum, zora], [publicProvider()]);
 
 const { connectors } = getDefaultWallets({
   appName: 'Sample App',
-  projectId: '94561412c55aba2b7369efbb40312686',
+  projectId: env.NEXT_PUBLIC_WALLET_CONNECT_ID as string,
   chains,
 });
 
