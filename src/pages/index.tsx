@@ -1,27 +1,28 @@
 import Head from 'next/head';
 import { Frame } from '../components/Frame';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { signIn, useSession } from "next-auth/react"
+import { signIn, useSession } from 'next-auth/react';
 import { useEffect } from 'react';
 
 export default function Home({ spaceXCrew }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const { data: sessionData } = useSession();
-  const { status: sessionStatus } = useSession();
+  const { data: sessionData, status: sessionStatus } = useSession();
 
+  // this should probably be done differently
+  // if this was a production app but it works for now
   useEffect(() => {
-    if (sessionStatus === "unauthenticated") {
-      void signIn(); //Add your own provider here
+    if (sessionStatus === 'unauthenticated') {
+      void signIn();
     }
-  }, [ sessionStatus ])
+  }, [sessionStatus]);
 
   return (
     <>
       <Head>
         <title>Sample App</title>
-        <meta name="description" content="Sample App"/>
-        <link rel="icon" href="/favicon.ico"/>
+        <meta name="description" content="Sample App" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Frame spaceXCrew={spaceXCrew}/>
+      <Frame spaceXCrew={spaceXCrew} />
     </>
   );
 }
