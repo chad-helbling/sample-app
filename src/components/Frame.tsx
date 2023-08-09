@@ -96,7 +96,7 @@ export function Frame({ spaceXCrew }: FrameProps) {
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
                                   <a
-                                    onClick={void item.onClick}
+                                    onClick={item.onClick}
                                     href="#"
                                     className={classNames(
                                       active ? 'bg-gray-100' : '',

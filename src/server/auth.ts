@@ -42,7 +42,7 @@ export const authOptions: NextAuthOptions = {
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
         username: { label: 'Username', type: 'text', placeholder: 'username' },
-        password: { label: 'Password', type: 'password' },
+        password: { label: 'Password', type: 'password', placeholder: 'password' },
       },
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
