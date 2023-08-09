@@ -44,6 +44,8 @@ export const authOptions: NextAuthOptions = {
         username: { label: 'Username', type: 'text', placeholder: 'username' },
         password: { label: 'Password', type: 'password' },
       },
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       authorize(credentials, req) {
         if (credentials?.username === 'test' && credentials?.password === 'Testing1') {
           return { id: 1, name: 'J Smith', email: 'jsmith@example.com' };
